@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
+
+// Color Variable
+$green: #77bfa3;
+$red: #cc704e;
+$blue: #7893e7;
+$gray: #9ab0a6;
+$white-shade: #ffffff60;
+$text-primary: #001b00;
+
+// Global Styling
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  color: $text-primary;
+}
+
+.container {
+  margin: 16px;
+}
+
+p {
+  margin: 0;
+}
+
+h1 {
+  margin: 4px 0px;
+  margin-bottom: 40px;
+}
+
+button {
+  border: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin: 16px 0px;
+  
+
+  p:first-child {
+    flex-basis: calc(8px * 17);
+  }
+
+  p {
+    flex-basis: calc(8px * 7);
+    flex-grow: 1;
+    text-transform: capitalize;
+  }
+}
+
+// Component
+.stats, .about, .evolution {
+  max-width: calc(8px * 40);
+  margin: 32px auto;
+}
+
+.moves {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+@mixin btn-type-base {
+  background-color: $white-shade;
+  font-size: 8px;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.btn-type {
+  @include btn-type-base;
+  display: inline;
+  margin-right: 4px;
+}
+
+.btn-type-block {
+  @include btn-type-base;
+  display: block;
+  margin: 4px 0;
+}
+
+.btn-move {
+  @include btn-type-base;
+  box-shadow: 1px 1px 3px rgb(140, 140, 140);
+  margin: 4px;
+}
+
+.modal {
+  height: 100vh;
+  background-color: white;
+  &-green {
+    height: 100vh;
+    background-color: $green;
+  }
+  &-red {
+    height: 100vh;
+    background-color: $red;
+  }
+  &-blue {
+    height: 100vh;
+    background-color: $blue;
+  }
+  &-gray {
+    height: 100vh;
+    background-color: $gray;
+  }
+  &-btn-close {
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    font-size: 24px;
+    height: 5%;
+  }
+  &-content-top {
+    position: relative;
+    padding: 0px 16px;
+    height: 35%;
+    img {
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: calc(8px * 22);
+      height: calc(8px * 22);
+      z-index: 2;
+    }
+  }
+  &-content-bottom {
+    padding: 0px 16px;
+    min-height: 60%;
+    border-radius: 16px 16px 0px 0px;
+    background-color: whitesmoke;
+  }
+  &-content-tabs {
+    display: flex;
+    justify-content: space-evenly;
+    p {
+      font-size: 16px;
+      margin-top: 48px;
+      cursor: pointer;
+    }
+    .active {
+      padding-bottom: 8px;
+      font-weight: 900;
+      border-bottom: 1px solid black;
+    }
+  }
+}
+
+@mixin card-base {
+  display: flex;
+  padding: 8px;
+  justify-content: space-between;
+  border-radius: 4px;
+  box-shadow: 1px 1px 4px rgb(140, 140, 140);
+  cursor: pointer;
+  p {
+    font-size: 12px;
+    font-weight: 700;
+  }
+  img {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.card {
+  @include card-base;
+  background-color: whitesmoke;
+  &-green {
+    @include card-base;
+    background-color: $green;
+  }
+  &-red {
+    @include card-base;
+    background-color: $red;
+  }
+  &-blue {
+    @include card-base;
+    background-color: $blue;
+  }
+  &-gray {
+    @include card-base;
+    background-color: $gray;
+  }
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(136px, 1fr));
+    gap: 8px;
+  }
+}
